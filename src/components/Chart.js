@@ -32,7 +32,6 @@ const LineCharts = ({forecastData, tempType}) => {
         }}
         width={Dimensions.get('window').width}
         height={220}
-        // yAxisLabel="$"
         yAxisSuffix={tempType == 'Celsius' ? '°C' : '°F'}
         yAxisInterval={1}
         chartConfig={{
@@ -46,6 +45,9 @@ const LineCharts = ({forecastData, tempType}) => {
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           style: {
             borderRadius: 16,
+            fontSize: 26,
+            fontWeight: 'bold',
+            color: '#000',
           },
           propsForDots: {
             r: '6',

@@ -11,9 +11,11 @@ const InputWithIcon = ({value, onChangeText, onIconPress}) => {
           placeholder="Search city"
           placeholderTextColor="#ffff"
           value={value}
-          onChangeText={onChangeText}
+          onChangeText={value => onChangeText(value)}
         />
-        <TouchableOpacity style={styles.searchIcon} onPress={onIconPress}>
+        <TouchableOpacity
+          style={styles.searchIcon}
+          onPress={() => onIconPress()}>
           <FontAwesome name="search" size={22} color={'#ffff'} />
         </TouchableOpacity>
       </View>

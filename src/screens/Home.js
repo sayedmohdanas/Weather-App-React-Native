@@ -64,6 +64,7 @@ const SearchBox = () => {
 
   const search = async (city, prevListCity = []) => {
     try {
+      console.log('ci', {city, searchText});
       if (city) {
         setSearchText(city);
       }
@@ -76,8 +77,10 @@ const SearchBox = () => {
       );
       setWeatherData(response.data);
       if (city) {
+        console.log({city});
         addNewCity(city, prevListCity);
       } else if (searchText) {
+        // console.log({searchText});
         addNewCity(searchText, prevListCity);
       }
     } catch (error) {
@@ -146,7 +149,10 @@ const SearchBox = () => {
     <ImageBackground source={backgroundImage} style={styles.imageContainer}>
       <InputWithIcon
         value={searchText}
-        onChangeText={value => setSearchText(value)}
+        onChangeText={value => {
+          console.log({value});
+          setSearchText(value);
+        }}
         onIconPress={search}
       />
       <City
